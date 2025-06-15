@@ -1,0 +1,6 @@
+Operation: 21.0 ^ 2.0 
+Result: 441.0
+
+Operation: 2.0 as percent is: 
+Result: 200.0
+
