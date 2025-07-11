@@ -52,6 +52,8 @@ def save_calculations(operation, result):
             print("\nCalculations saved successfully.")
     except FileNotFoundError:
         print("\nError occurred while saving calculations.")
+    finally:
+        file.close()
 #function to perform the operations based on user's input
 def calculator() :
     choice = choices()
@@ -90,7 +92,7 @@ def calculator() :
         print(f"The square root of {a} is: ", result)
         save_calculations(f"{a} square root: ", result)
     elif choice == "8":
-        a = float(input("\nEnter the value to be convereted to percentage: "))
+        a = float(input("\nEnter the value to be converted to percentage: "))
         result = a * 100
         print(f"{a} is {result} percent")
         save_calculations(f"{a} as percent is: ", result)
@@ -106,11 +108,12 @@ def calculator() :
     else:
         print("Invalid choice. Please choose a valid option.")
 # main function that runs the calculator
-def main():
-    print("Calculators make better mathematicians..")
-    print("Welcome to your favourite calculator\n")
-    calculator()
-    cont = user_continue()
-    while cont:
+if __name__ == "__main__": #only execute the main function when it is called
+    def main():
+        print("Calculators make better mathematicians..")
+        print("Welcome to your favourite calculator\n")
         calculator()
-main()
+        cont = user_continue()
+        while cont:
+            calculator()
+    main()
